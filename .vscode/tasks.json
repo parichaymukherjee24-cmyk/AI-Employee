@@ -1,0 +1,50 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Verify Lotus Paradise build",
+			"type": "shell",
+			"command": "npm run build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Git: init, remote, commit, push",
+			"type": "shell",
+			"command": "cmd.exe /c \"cd /d c:\\Users\\R7\\AI-Employee && if not exist .git (git init) && (git remote get-url origin >nul 2>&1 && git remote set-url origin https://github.com/parichaymukherjee24-cmyk/AI-Employee.git || git remote add origin https://github.com/parichaymukherjee24-cmyk/AI-Employee.git) && git add -A && (git commit -m \\\"Initial commit: add site files\\\" || echo No changes to commit) && git branch -M main && git push -u origin main\"",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Git: PowerShell init & push",
+			"type": "shell",
+			"command": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Set-Location -LiteralPath 'C:\\Users\\R7\\AI-Employee'; if (-not (Test-Path -Path '.git')) { git init } ; try { git remote get-url origin | Out-Null; git remote set-url origin 'https://github.com/parichaymukherjee24-cmyk/AI-Employee.git' } catch { git remote add origin 'https://github.com/parichaymukherjee24-cmyk/AI-Employee.git' } ; git add -A ; try { git commit -m 'Initial commit: add site files' } catch { Write-Output 'No changes to commit' } ; git branch -M main ; git push -u origin main\"",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Git: set local identity, commit, push",
+			"type": "shell",
+			"command": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Set-Location -LiteralPath 'C:\\Users\\R7\\AI-Employee'; git config user.name 'R7'; git config user.email 'r7@local'; git add -A; git commit -m 'Initial commit: add site files' || Write-Output 'No changes to commit'; git branch -M main; git push -u origin main\"",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Git: set identity, commit, push (retry)",
+			"type": "shell",
+			"command": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Set-Location -LiteralPath 'C:\\Users\\R7\\AI-Employee'; git config user.name 'R7'; git config user.email 'r7@local'; git add -A; git commit -m 'Initial commit: add site files'; if ($LASTEXITCODE -ne 0) { Write-Output 'No changes to commit' }; git branch -M main; git push -u origin main\"",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
+		}
+	]
+}
